@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import { ROUTERS } from '../myConfig.js'
+
 export default {
   name: 'Login',
   data() {
@@ -51,7 +53,7 @@ export default {
           this.$Message.info('username or password should be written')
           return 0
         }
-        this.axios.get('http://39.98.165.19:8080/user/role', { params: {username} })//先获取用户类型，后端偷懒，没得法
+        this.$axios.get( ROUTERS.getUserType, { params: {username} })//先获取用户类型，后端偷懒，没得法
         .then( res => {
           let data = res.data.data
           console.log(data)
@@ -65,7 +67,7 @@ export default {
             }
           }
           if(res.data.status === 200 && isAdmin){
-            this.axios.post('http://39.98.165.19:8080/user/login',{username,password})
+            this.$axios.post( ROUTERS.userLogin, {username,password})
             .then( res => {
               let data = res.data.data
               if(res.data.status === 200){

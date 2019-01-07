@@ -10,6 +10,7 @@
 /* eslint-disable */
 import Login from './components/Login'
 import Admin from './components/Admin'
+import { ROUTERS } from './myConfig';
 
 export default {
   name: 'App',
@@ -26,7 +27,7 @@ export default {
   mounted(){
     let user = window.sessionStorage.getItem('admin_name')
     if( user !== null){
-      this.axios.get('http://39.98.165.19:8080/user/auth', { params: {username: user} })
+      this.$axios.get( ROUTERS.loginBoolean, { params: {username: user} })
       .then((res) => {
         let authorities = res.data.data.authorities[0]
         console.log(authorities)
@@ -54,7 +55,7 @@ export default {
       this.userInfo = userInfo
     },
     handleQuit(){// 登出，清空用户信息
-      this.$axios.get('http://39.98.165.19:8080/logout')
+      this.$axios.get( ROUTERS.logout )
       .then( res => {
         this.status = 'login'
         this.userInfo = {}

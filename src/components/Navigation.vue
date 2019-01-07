@@ -75,7 +75,7 @@ export default {
                             return h('div', [ oldPsdInput, newPsdInput ])
                         },
                         onOk(){
-                            this.axios.post( 'http://39.98.165.19:8080/change/password', { before: this.oldPsd, after: this.newPsd })
+                            this.$axios.post( ROUTERS.changePwd, { before: this.oldPsd, after: this.newPsd })
                             .then( res => {
                                 this.$Message.success('change password successfully')
                             })
