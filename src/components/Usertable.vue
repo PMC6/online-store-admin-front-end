@@ -31,7 +31,7 @@
     import { ROUTERS, GET_URL, REQUEST_STATUS, INSTANCE_STATUS } from '../myConfig.js'
     
     export default {
-        name: 'Usertable',
+        name: 'UserTable',
         props: ['tableData','path','updateCurrentPage','submitSearchValue'],
         components: {
             Search,

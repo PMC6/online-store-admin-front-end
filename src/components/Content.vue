@@ -29,6 +29,14 @@ import { ROUTERS, REQUEST_STATUS, INSTANCE_STATUS, TYPE } from '../myConfig.js'
 
 export default {
     name: "Content",
+    components: {
+        RequestTable,
+        UserTable,
+        Blacklist,
+        AdRequestTable,
+        CommissionRate,
+        OrderTable
+    },
     props: {
         numberOfPage: { 
             type: Number,
@@ -56,14 +64,6 @@ export default {
             page: 1,//第几页
             currentContent: 'RequestTable'
         }
-    },
-    components: {
-        RequestTable,
-        UserTable,
-        Blacklist,
-        AdRequestTable,
-        CommissionRate,
-        OrderTable
     },
     computed: {
         whichDisplay: function(){
